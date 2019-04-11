@@ -124,9 +124,11 @@ const analytics = {
 			}
 
 			if ( _superProps ) {
-				superProperties = _superProps.getAll();
-				debug( '- Super Props: %o', superProperties );
-				eventProperties = assign( eventProperties, superProperties );
+				l( _superProps );
+				//	superProperties = _superProps.getAll();
+				//		debug( '- Super Props: %o', superProperties );
+				l( eventProperties );
+				//	eventProperties = assign( eventProperties, superProperties );
 			}
 
 			debug(
