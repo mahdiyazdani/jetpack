@@ -54,7 +54,10 @@ function github_gist_shortcode( $atts, $content = '' ) {
 		return '<!-- Invalid Gist ID -->';
 	}
 
-	if ( Jetpack_AMP_Support::is_amp_request() ) {
+	if (
+		class_exists( 'Jetpack_AMP_Support' )
+		&& Jetpack_AMP_Support::is_amp_request()
+	) {
 		/*
 		 * According to <https://www.ampproject.org/docs/reference/components/amp-gist#height-(required)>:
 		 *
