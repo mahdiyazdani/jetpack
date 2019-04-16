@@ -68,6 +68,7 @@ class GalleryImageEdit extends Component {
 			linkTo,
 			onRemove,
 			origUrl,
+			srcSet,
 			url,
 			width,
 		} = this.props;
@@ -100,6 +101,7 @@ class GalleryImageEdit extends Component {
 					onKeyDown={ this.onImageKeyDown }
 					ref={ this.img }
 					src={ url }
+					srcSet={ srcSet }
 					tabIndex="0"
 				/>
 				{ isBlobURL( origUrl ) && <Spinner /> }
