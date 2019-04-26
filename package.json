@@ -18,6 +18,7 @@
 	},
 	"scripts": {
 		"watch": "yarn install-if-deps-outdated && ./node_modules/.bin/gulp watch",
+		"check-development-environment": "tools/check-development-environment.sh",
 		"clean": "yarn clean-client && yarn clean-extensions",
 		"clean-client": "rm -rf _inc/build/ css/",
 		"clean-extensions": "rm -rf _inc/blocks/ ",
