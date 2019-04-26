@@ -445,6 +445,39 @@ class WP_Test_iJetpack_Sync_Replicastore extends PHPUnit_Framework_TestCase {
 		$this->assertNotEquals( $before_checksum, $store->posts_checksum() );
 	}
 
+
+	/**
+	 * @dataProvider store_provider
+	 * @requires PHP 5.3
+	 */
+	function test_replica_checksum_posts_return_different_values_on_enej_case( $store ) {
+		$store->reset();
+
+		$post = self::$factory->post( 807 );
+		$store->upsert_post( $post );
+		$post = self::$factory->post( 811 );
+		$store->upsert_post( $post );
+		$post = self::$factory->post( 816 );
+		$store->upsert_post( $post );
+
+		$before_checksum = $store->posts_checksum();
+
+		$post = self::$factory->post( 812 );
+		$store->upsert_post( $post );
+		$post = self::$factory->post( 813 );
+		$store->upsert_post( $post );
+		$post = self::$factory->post( 814 );
+		$store->upsert_post( $post );
+		$post = self::$factory->post( 815 );
+		$store->upsert_post( $post );
+
+		$after_checksum = $store->posts_checksum();
+
+		$this->assertNotEquals( $before_checksum, $after_checksum );
+	}
+
+
+
 	/**
 	 * Comments
 	 */
